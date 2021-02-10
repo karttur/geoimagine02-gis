@@ -4,20 +4,32 @@ Created on 21 Jan 2021
 @author: thomasgumbricht
 '''
 
+# Standard library imports
+
 from __future__ import division
+
 import os
+
 import sys
 
-from gdalconst import *
-from osgeo import gdal, ogr, osr
-from itertools import chain
 import array as arr
+
+from itertools import chain
+
+# Third party imports
+
 import numpy as np
-#import mj_datetime_v70 as mj_dt
-import glob
-from os import listdir
+
+from osgeo import gdal, ogr, osr
+
+from gdalconst import *
+
 #import fiona
 #import json
+
+# Package application imports
+
+#import mj_datetime_v70 as mj_dt
 
 class MjProj:
     ''' Class for handling projections
@@ -138,8 +150,7 @@ class ogrFeature:
             if f.transfer in ['constant','fixed','field']:
                 tarfeat.SetField(f.name,f.source)       
             elif f.transfer == 'copy':
-                pass
-                STOP
+                exit( 'alternative copy not identified in kt_gis.ogrFeature.CreateOgrFeature')
             elif f.transfer == 'db':
                 tarfeat.SetField(f.name,f.source)
             elif f.transfer == 'dict':
@@ -439,7 +450,7 @@ class VectorLayer:
             self.layer.CreateField(new_field)
         else:
             for i in range( self.layerDefn.GetFieldCount() ):
-                STOPPAUNKNOWN
+                
                 if self.layerDefn.GetFieldDefn(i).GetName() == fieldDef.name:
                     fieldTypeCode = self.layerDefn.GetFieldDefn(i).GetType()
                     fieldType = self.layerDefn.GetFieldDefn(i).GetFieldTypeName(fieldTypeCode)
@@ -566,9 +577,11 @@ class RasterPalette():
         self.colortable = ct
        
     def FixGDALPalette(self):
-        #paletteT = mj_psycopg2.SelectPalettePub(palette)
+        '''
+        '''
+        
         if len(self.paletteT) == 0:
-            NOPALETTE
+            
             return False
         PcR = []
         AT = []
