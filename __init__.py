@@ -1,5 +1,7 @@
 """
-Postgres connection for karttur Geo Imagine Framework
+Created 22 Jan 2021
+Last updated 12 Feb 2021
+GIS functions for kartturs GeoImagine Framework
 
 Author
 ______
