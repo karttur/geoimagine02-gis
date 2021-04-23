@@ -10,6 +10,6 @@ Thomas Gumbricht
 
 from .version import __version__, VERSION, metadataD
 
-from .kt_gis import MjProj, GetVectorProjection, GetRasterMetaData, Geometry, ESRIOpenGetLayer
+from .kt_gis import MjProj, GetVectorProjection, GetRasterMetaData, Geometry, ESRIOpenGetLayer, RasterOpenGetFirstLayer
 
 __all__ = ['MjProj','GetVectorProjection','GetRasterMetaData','Geometry','ESRIOpenGetLayer']
